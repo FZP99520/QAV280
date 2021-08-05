@@ -76,6 +76,7 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 		imu_data->os_accel_z = (s16)BuffRead[2];
 		imu_data->AccelOffsetFinished =1;
 		imu_data->AccelOffsetReq=0;
+		//add test
 	}
 	else
 	{
