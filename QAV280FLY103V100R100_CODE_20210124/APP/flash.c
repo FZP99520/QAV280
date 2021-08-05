@@ -77,6 +77,11 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 		imu_data->AccelOffsetFinished =1;
 		imu_data->AccelOffsetReq=0;
 	}
+	else
+	{
+		imu_data->AccelOffsetFinished =0;
+		imu_data->AccelOffsetReq=1;
+	}
 	FlashRead(MPUGyroOffsetAddr,BuffRead,3);
 	if(BuffRead[0]!=0xFFFF && BuffRead[1]!= 0xFFFF && BuffRead[2]!= 0xFFFF)
 	{
@@ -85,6 +90,11 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 		imu_data->os_gyro_z = (s16)BuffRead[2];
 		imu_data->GyroOffsetFinished =1;
 		imu_data->GyroOffsetReq=0;
+	}
+	else
+	{
+		imu_data->GyroOffsetFinished =0;
+		imu_data->GyroOffsetReq=1;
 	}
 	FlashRead(MAGOffsetAddr,BuffRead,6);
 	if(BuffRead[0]!=0xFFFF && BuffRead[1]!= 0xFFFF &&BuffRead[2]!= 0xFFFF)
@@ -97,6 +107,11 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 		mag->zgain   = (float)BuffRead[5]/1000.0f;
 		mag->MagOffsetFinished = 1;
 		mag->MagOffsetReq=0;
+	}
+	else
+	{
+		mag->MagOffsetFinished = 0;
+		mag->MagOffsetReq=1;
 	}
 }
 //read pid data from flash

@@ -465,12 +465,12 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\output\startup_stm32f10x_md.d -o.\output\startup_stm32f10x_md.o 
--II:\ÏîÄ¿»ã×Ü\QAV280FLY103V100R100\QAV280FLY103V100R100_CODE_20210124\RTE\_Targ
-et1 -IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include -IC:\Keil\ARM\PACK\Keil\ST
-M32F1xx_DFP\2.1.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine="_
-_UVISION_VERSION SETA 522" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD
- SETA 1" --list=.\startup_stm32f10x_md.lst Libraries\CMSIS\CM3\DeviceSupport\ST
-\STM32F10x\startup\arm\startup_stm32f10x_md.s
+-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\
+_Target1 -IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include -IC:\Keil\ARM\PACK\Ke
+il\STM32F1xx_DFP\2.1.0\Device\Include --predefine="__MICROLIB SETA 1" --predefi
+ne="__UVISION_VERSION SETA 522" --predefine="_RTE_ SETA 1" --predefine="STM32F1
+0X_MD SETA 1" --list=.\startup_stm32f10x_md.lst Libraries\CMSIS\CM3\DeviceSuppo
+rt\ST\STM32F10x\startup\arm\startup_stm32f10x_md.s
 
 
 
