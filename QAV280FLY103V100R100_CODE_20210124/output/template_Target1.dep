@@ -1,5 +1,5 @@
 Dependencies for Project 'template', Target 'Target1': (DO NOT MODIFY !)
-F (.\USER\main.c)(0x610AA82B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
+F (.\USER\main.c)(0x611A8594)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
 I (.\APP\IncludeAll.h)(0x5F03F3F7)
 I (.\USER\stm32f10x.h)(0x5EBC27DE)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h)(0x582539DE)
@@ -376,7 +376,7 @@ I (.\Drive\kalman.h)(0x5ECA066C)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\arm_math.h)(0x582539DE)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (APP\Position_Control_GPS.h)(0x5F0418D2)
-F (.\APP\control.c)(0x6097E50C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\control.o --omf_browse .\output\control.crf --depend .\output\control.d)
+F (.\APP\control.c)(0x611538D3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\control.o --omf_browse .\output\control.crf --depend .\output\control.d)
 I (APP\control.h)(0x5EB4FC37)
 I (.\USER\stm32f10x.h)(0x5EBC27DE)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h)(0x582539DE)
@@ -639,7 +639,7 @@ I (.\Drive\kalman.h)(0x5ECA066C)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\arm_math.h)(0x582539DE)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (.\APP\Position_Control_GPS.h)(0x5F0418D2)
-F (.\APP\flash.c)(0x5EC9291C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\flash.o --omf_browse .\output\flash.crf --depend .\output\flash.d)
+F (.\APP\flash.c)(0x611A7C29)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\flash.o --omf_browse .\output\flash.crf --depend .\output\flash.d)
 I (APP\IncludeAll.h)(0x5F03F3F7)
 I (.\USER\stm32f10x.h)(0x5EBC27DE)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h)(0x582539DE)
