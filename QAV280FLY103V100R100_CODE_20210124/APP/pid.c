@@ -7,8 +7,10 @@ u8 UpdatePID=0;
 
 PID_STATUS PID_STA=PIDInitReq;
 u8 data_buf[18];
-PID_TypeDef Position_X_PID;
-PID_TypeDef Position_X_PID;
+PID_TypeDef LocateX_Pos_PID;
+PID_TypeDef LocateY_Pos_PID;
+PID_TypeDef LocateX_Speed_PID;
+PID_TypeDef LocateY_Speed_PID;
 PID_TypeDef Pitch_angle_PID;
 PID_TypeDef Roll_angle_PID;
 PID_TypeDef Yaw_angle_PID;
@@ -44,6 +46,8 @@ void PID_Cal_Update(void)
 		PID_Reset_Integ(&Pitch_rate_PID);//没有油门输入清零积分
 		PID_Reset_Integ(&Pitch_angle_PID);
 	}
+	//位置控制
+	
 	//角度控制计算
 	PID_Position_Cal(&Roll_angle_PID,Target_Roll,IMU.Roll,100.0f,90.0f);   //最大期望速度 90度/s
 	PID_Position_Cal(&Pitch_angle_PID,Target_Pitch,IMU.Pitch,100.0f,90.0f); //最大期望速度 90度/s
