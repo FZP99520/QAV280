@@ -28,6 +28,8 @@ typedef enum
 
 extern u8 UpdatePID;
 extern PID_STATUS PID_STA;
+extern PID_TypeDef Position_X_PID;
+extern PID_TypeDef Position_X_PID;
 extern PIDOutput_TypeDef PIDOutput;
 extern PID_TypeDef Pitch_angle_PID;
 extern PID_TypeDef Roll_angle_PID;

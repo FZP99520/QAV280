@@ -44,7 +44,7 @@ int main()
 	 PID_STA = Flash_Read_PID();
 	 GPS_Position_PID_Para_Init();
 	
-//  USART1_Init(9600);
+//USART1_Init(9600);
 	USART2_Init(115200);
 	TIMER4_Init();
 	#define ESC_CAL 0
@@ -63,16 +63,12 @@ int main()
 	
 	while(1)
 	{
-
-		//add test 0
-		//Branch 2021
 //
 //		FlashErase(FlashDataBase,1);
 //		FlashWrite(FlashDataBase,BuffWrite,10);
 //		Delay_ms(500);
 //		FlashRead(FlashDataBase,BuffRead,10);
 //		Delay_ms(500);
-//		
 //		BuffWrite[0]=10;
 //		BuffWrite[1]=11;
 //		BuffWrite[2]=12;

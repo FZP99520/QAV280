@@ -7,6 +7,8 @@ u8 UpdatePID=0;
 
 PID_STATUS PID_STA=PIDInitReq;
 u8 data_buf[18];
+PID_TypeDef Position_X_PID;
+PID_TypeDef Position_X_PID;
 PID_TypeDef Pitch_angle_PID;
 PID_TypeDef Roll_angle_PID;
 PID_TypeDef Yaw_angle_PID;
