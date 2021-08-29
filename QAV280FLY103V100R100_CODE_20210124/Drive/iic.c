@@ -206,6 +206,7 @@ void IIC_Read_Buff(u8 slave_addr,u8 addr,u8* buff,u8 len)
 	IIC_Stop();
 }
 
+//Write bytes
 int I2C_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* buff)
 {
     u8 i;
@@ -227,4 +228,30 @@ int I2C_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* buff)
     ret = 1;
     return ret;
     
+}
+
+//Read bytes
+int I2C_ReadBytes(u8 DeviveID,u8 RegAddr,u8 size,u8* buff)
+{
+    u8 count;
+    int ret;
+    IIC_Start();
+    IIC_Send_Byte(DeviveID);
+    ret = IIC_Wait_Ack();
+    if(ret == 0) return -1;
+    IIC_Send_Byte(RegAddr);
+    ret = IIC_Wait_Ack();
+    if(0 == ret) return -1;
+    IIC_Start();
+    IIC_Send_Byte(RegAddr+1);
+    ret = IIC_Wait_Ack();
+    if(0 == ret) return -1;
+    for(count=0;count<len-1;count++)
+       {
+            buff[count]=IIC_Read_Byte(1);
+       }
+    buff[count]=IIC_Read_Byte(0);
+        
+     IIC_Stop();
+     return 1;
 }

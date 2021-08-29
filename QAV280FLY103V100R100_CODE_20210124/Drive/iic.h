@@ -46,4 +46,6 @@ void IIC_Write_Len(u8 slave_addr,u8 addr,u8* buff,u8 len);
 void IIC_Read_Buff(u8 slave_addr,u8 addr,u8* buff,u8 len);
 void IIC_Write_CMD(u8 slave_addr,u8 cmd);
 void iic_delay(u8 i);
+int I2C_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* buff);
+
 #endif
