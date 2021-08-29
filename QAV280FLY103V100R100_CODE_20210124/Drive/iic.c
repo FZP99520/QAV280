@@ -209,16 +209,22 @@ void IIC_Read_Buff(u8 slave_addr,u8 addr,u8* buff,u8 len)
 int I2C_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* buff)
 {
     u8 i;
+    int ret;
 	IIC_Start();
 	IIC_Send_Byte(DeviceID);
+	ret = IIC_Wait_Ack();
+    if(ret == 0) return -1;
+	ret = IIC_Send_Byte(RegAddr);
+    if(ret == 0) return -1;
 	IIC_Wait_Ack();
-	IIC_Send_Byte(RegAddr);
-	IIC_Wait_Ack();
-	for(i=0;i<len;i++)
+	for(i=0;i<size;i++)
 	{
 	  IIC_Send_Byte(buff[i]);
 	  IIC_Wait_Ack();
+      if(ret == 0) return -1;
 	}
 	IIC_Stop();
+    ret = 1;
+    return ret;
     
 }
