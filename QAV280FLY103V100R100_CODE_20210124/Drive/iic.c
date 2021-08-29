@@ -214,9 +214,9 @@ int I2C_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* buff)
 	IIC_Send_Byte(DeviceID);
 	ret = IIC_Wait_Ack();
     if(ret == 0) return -1;
-	ret = IIC_Send_Byte(RegAddr);
+	IIC_Send_Byte(RegAddr);
+	ret = IIC_Wait_Ack();
     if(ret == 0) return -1;
-	IIC_Wait_Ack();
 	for(i=0;i<size;i++)
 	{
 	  IIC_Send_Byte(buff[i]);
