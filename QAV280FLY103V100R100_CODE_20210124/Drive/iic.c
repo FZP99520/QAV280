@@ -3,6 +3,8 @@
 #include "stm32f10x.h"
 #include "stm32f10x_i2c.h"
 /*******************************/
+#define SWI2C_INUSE
+
 void IIC_Init(void)
 {			
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -14,7 +16,7 @@ void IIC_Init(void)
 	IIC_SDA_H;
 	IIC_SCL_H;
 }
-void SDA_OUT(void)
+static void SDA_OUT(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;	//端口配置
@@ -22,7 +24,7 @@ void SDA_OUT(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     //10M
   GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
-void SDA_IN(void)
+static void SDA_IN(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;	//端口配置
@@ -30,7 +32,7 @@ void SDA_IN(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     //10M
   GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
-void IIC_Start(void)
+static void IIC_Start(void)
 {
 	SDA_OUT();
 	IIC_SDA_H;
@@ -40,7 +42,7 @@ void IIC_Start(void)
 	iic_delay(10);
 	IIC_SCL_L;
 }
-void IIC_Stop(void)
+static void IIC_Stop(void)
 {
 	SDA_OUT();//sda线输出
 	IIC_SCL_L;
@@ -50,7 +52,7 @@ void IIC_Stop(void)
 	iic_delay(10);
 	IIC_SDA_H;  //发送I2C总线结束信号						   	
 }
-u8 IIC_Wait_Ack(void)
+static u8 IIC_Wait_Ack(void)
 {
 	u8 ucErrTime=0;
 	SDA_IN();      //SDA设置为输入  
@@ -71,7 +73,7 @@ u8 IIC_Wait_Ack(void)
 	IIC_SCL_L;//时钟输出0 	   
 	return 1;  
 } 
-void IIC_Ack(void)
+static void IIC_Ack(void)
 {
 	//IIC_SCL_L;
 	SDA_OUT();
@@ -81,7 +83,7 @@ void IIC_Ack(void)
 	iic_delay(5);//Delay_us(1);
 	IIC_SCL_L;
 }   
-void IIC_NAck(void)
+static void IIC_NAck(void)
 {
 	SDA_OUT();
 	IIC_SDA_H;
@@ -202,4 +204,21 @@ void IIC_Read_Buff(u8 slave_addr,u8 addr,u8* buff,u8 len)
 	}
 	buff[count]=IIC_Read_Byte(0);
 	IIC_Stop();
+}
+
+int I2C_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* buff)
+{
+    u8 i;
+	IIC_Start();
+	IIC_Send_Byte(DeviceID);
+	IIC_Wait_Ack();
+	IIC_Send_Byte(RegAddr);
+	IIC_Wait_Ack();
+	for(i=0;i<len;i++)
+	{
+	  IIC_Send_Byte(buff[i]);
+	  IIC_Wait_Ack();
+	}
+	IIC_Stop();
+    
 }
