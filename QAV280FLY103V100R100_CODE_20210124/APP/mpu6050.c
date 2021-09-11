@@ -1,7 +1,7 @@
 #include "mpu6050.h"
 #include "systick.h"
 #include "printf.h"
-#include "iic.h"
+
 #include "math.h"
 #include "IMU.h"
 #include "qmc5883.h"
@@ -22,19 +22,19 @@ MoveAvarageFilter_TypeDef Filter_Gyro_Z={4,0,0,{0}};
 
 float Pitch,Roll,Yaw; 
 
-static void MPU6050_RD_Buff(u8 slave_addr,u8 addr,u8* buff,u8 len);
+static int MPU6050_RD_Buff(u8 addr,u8 size,u8* pBuff);
 static void MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* imu_data);
 static u8 MPU_GET_ACCEL_OFFSET(IMU_Data_TypeDef* imu_data);
 static u8 MPU_GET_GYRO_OFFSET(IMU_Data_TypeDef* imu_data);
-static void MPU6050_Write_Data(u8 addr,u8 dat);
-static unsigned char MPU6050_Read_Data(u8 addr);
-static u16 MPU6050_ReadTwo_Byte(u8 addr);
+static int MPU6050_Write_Data(u8 addr,u8 data);
+static int MPU6050_Read_Data(u8 addr,u8* pData);
+
 u8 temp;
 u8 MPU6050_Init(void) //初始化
 {
-	u8 id;
-	id = MPU6050_Read_Data(WHO_AM_I);
-	if(id != 0x68 )
+	u8 dev_id;
+	MPU6050_Read_Data(WHO_AM_I,&dev_id);
+	if(dev_id != 0x68 )
 		 return 0;
 	MPU6050_Write_Data(PWR_MGMT_1, 0x80);//复位
 	Delay_ms(100);
@@ -47,7 +47,7 @@ u8 MPU6050_Init(void) //初始化
 	MPU6050_Write_Data(GYRO_CONFIG, 0x10);//设置量程+-1000deg/s
 	
 	MPU6050_Write_Data(ACCEL_CONFIG, 0x08);//+-4g
-	temp = MPU6050_Read_Data(ACCEL_CONFIG);
+	MPU6050_Read_Data(ACCEL_CONFIG,&temp);
 	
 	MPU6050_Write_Data(FIFO_EN,0x00);//Disable fifo
 	MPU6050_Write_Data(INT_EN,0x00);//Disable interrupt
@@ -108,13 +108,13 @@ read mpu6050 data from registers
 static void MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* mpu)
 {
 	  u8 accel_temp_gyro[14];
-	  MPU6050_RD_Buff(devAddr,ACCEL_XOUT_H,accel_temp_gyro,14);
+	  MPU6050_RD_Buff(ACCEL_XOUT_H,14,accel_temp_gyro);
 	  mpu->ACCEL_X = ((s16)(accel_temp_gyro[0])<<8 |accel_temp_gyro[1]) ;
 	  mpu->ACCEL_Y = ((s16)(accel_temp_gyro[2])<<8 |accel_temp_gyro[3]) ;
 	  mpu->ACCEL_Z = ((s16)(accel_temp_gyro[4])<<8 |accel_temp_gyro[5]) ;
 	  mpu->TEMP =    ((s16)(accel_temp_gyro[6])<<8 |accel_temp_gyro[7]);
 	  mpu->GYRO_X =  ((s16)(accel_temp_gyro[8])<<8 |accel_temp_gyro[9]);
-  	mpu->GYRO_Y =  ((s16)(accel_temp_gyro[10])<<8 |accel_temp_gyro[11]);
+  	  mpu->GYRO_Y =  ((s16)(accel_temp_gyro[10])<<8 |accel_temp_gyro[11]);
 	  mpu->GYRO_Z =  ((s16)(accel_temp_gyro[12])<<8 |accel_temp_gyro[13]);
 }
 /*************************/
@@ -208,65 +208,27 @@ static u8 MPU_GET_GYRO_OFFSET(IMU_Data_TypeDef* imu)
 
 
 /*************************/
-static void MPU6050_Write_Data(u8 addr,u8 dat) //写数据
+static int MPU6050_Write_Data(u8 addr,u8 data) //写数据
 {
-	IIC_Start();
-	IIC_Send_Byte(MPU_SlaveAddress);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(addr);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(dat);
-	IIC_Wait_Ack();
-	IIC_Stop();
+    int res;
+    u8* pBuff;
+    *pBuff = data;
+	res = Api_IIC_WriteBytes(MPU_SlaveAddress,addr,1,pBuff);
+    return res;
 }
-static u8 MPU6050_Read_Data(u8 addr) //读取数据
+static int MPU6050_Read_Data(u8 addr,u8* pData) //读取数据
 {
-	s16 temp;
-	IIC_Start();
-	IIC_Send_Byte(MPU_SlaveAddress);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(addr);
-	IIC_Wait_Ack();
-	IIC_Start();
-	IIC_Send_Byte(MPU_SlaveAddress+1);
-	IIC_Wait_Ack();
-	temp=IIC_Read_Byte(0);
-	IIC_Stop();
-	return temp;
-}
-static u16 MPU6050_ReadTwo_Byte(u8 addr)
-{
-	u8 tempH;
-	u8 tempL;
-	IIC_Start();
-	IIC_Send_Byte(MPU_SlaveAddress);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(addr);
-	IIC_Wait_Ack();
-	IIC_Start();
-	IIC_Send_Byte(MPU_SlaveAddress+1);
-	IIC_Wait_Ack();
-	tempH=IIC_Read_Byte(1);
-	tempL=IIC_Read_Byte(0);
-	IIC_Stop();
-  return (tempH<<8)+tempL;
+    int res;
+    res = Api_IIC_ReadBytes(MPU_SlaveAddress,addr,1,pData);
+	return res;
 }
 
-static void MPU6050_RD_Buff(u8 slave_addr,u8 addr,u8* buff,u8 len)
+static int MPU6050_RD_Buff(u8 addr,u8 size,u8* pBuff)
 {
-	u8 count;
-	IIC_Start();
-	IIC_Send_Byte(slave_addr);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(addr);
-	IIC_Wait_Ack();
-	IIC_Start();
-	IIC_Send_Byte(slave_addr+1);
-	IIC_Wait_Ack();
-	for(count=0;count<len-1;count++)
-	{
-		buff[count]=IIC_Read_Byte(1);
-	}
-	buff[count]=IIC_Read_Byte(0);
-	IIC_Stop();
+    int res;
+    res = Api_IIC_ReadBytes(MPU_SlaveAddress,addr,size,pBuff);
+    return res;
 }
+
+
+

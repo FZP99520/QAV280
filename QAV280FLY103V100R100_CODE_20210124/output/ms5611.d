@@ -40,8 +40,8 @@
 .\output\ms5611.o: APP\mpu6050.h
 .\output\ms5611.o: APP\filter.h
 .\output\ms5611.o: APP\control.h
-.\output\ms5611.o: APP\qmc5883.h
 .\output\ms5611.o: .\Drive\iic.h
+.\output\ms5611.o: APP\qmc5883.h
 .\output\ms5611.o: APP\nrf24l01.h
 .\output\ms5611.o: APP\RC.h
 .\output\ms5611.o: APP\gps.h

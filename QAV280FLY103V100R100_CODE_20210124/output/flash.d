@@ -40,8 +40,8 @@
 .\output\flash.o: APP\mpu6050.h
 .\output\flash.o: APP\filter.h
 .\output\flash.o: APP\control.h
-.\output\flash.o: APP\qmc5883.h
 .\output\flash.o: .\Drive\iic.h
+.\output\flash.o: APP\qmc5883.h
 .\output\flash.o: APP\nrf24l01.h
 .\output\flash.o: APP\RC.h
 .\output\flash.o: APP\gps.h

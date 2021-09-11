@@ -41,8 +41,8 @@
 .\output\control.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 .\output\control.o: .\APP\mpu6050.h
 .\output\control.o: .\APP\filter.h
-.\output\control.o: .\APP\qmc5883.h
 .\output\control.o: .\Drive\iic.h
+.\output\control.o: .\APP\qmc5883.h
 .\output\control.o: .\APP\nrf24l01.h
 .\output\control.o: .\APP\RC.h
 .\output\control.o: .\APP\gps.h

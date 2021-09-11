@@ -7,10 +7,10 @@
 #define  GyroCoefficient 0.030f //1/32.8
 #define Range_Acc_Setting 8192u
 
-#define devAddr  0xD0
 #include "stm32f10x.h"
 #include "filter.h"
 #include "control.h"
+#include "iic.h"
 typedef struct
 {
 	u8 AccelOffsetReq;
@@ -72,7 +72,7 @@ extern MoveAvarageFilter_TypeDef Filter_Gyro_Z;
 #define	GYRO_ZOUT_L		0x48
 #define	PWR_MGMT_1		0x6B	//电源管理，典型值：0x00(正常启用)
 #define	WHO_AM_I			0x75	//IIC地址寄存器(默认数值0x68，只读)
-#define	MPU_SlaveAddress	0xd0	//IIC写入时的地址字节数据，+1为读取
+#define	MPU_SlaveAddress	0xD0	//IIC写入时的地址字节数据，+1为读取
 
 
 

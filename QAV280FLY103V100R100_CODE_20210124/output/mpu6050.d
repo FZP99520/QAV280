@@ -33,10 +33,10 @@
 .\output\mpu6050.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\output\mpu6050.o: APP\filter.h
 .\output\mpu6050.o: APP\control.h
+.\output\mpu6050.o: .\Drive\iic.h
 .\output\mpu6050.o: .\APP\systick\systick.h
 .\output\mpu6050.o: .\APP\PRINTF\printf.h
 .\output\mpu6050.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
-.\output\mpu6050.o: .\Drive\iic.h
 .\output\mpu6050.o: C:\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\mpu6050.o: APP\IMU.h
 .\output\mpu6050.o: APP\qmc5883.h

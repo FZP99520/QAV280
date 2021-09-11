@@ -15,14 +15,14 @@ MAG_Data_TypeDef MAG_Data;
 
 u16 cnt_mag_err=0;
 
-static void MAG_WriteByte(u8 addr,u8 dat);
-static u8 MAG_ReadByte(u8 addr);
-static void MAG_RD_Buff(u8 addr,u8 *buf,u8 len);
+static int MAG_WriteByte(u8 addr,u8 data);
+static int MAG_ReadByte(u8 addr,u8* pData);
+static int MAG_RD_Buff(u8 addr,u8 size,u8* pBuff);
 static void MAG_Calibration(MAG_Data_TypeDef* mag);
 u8 MAG_Init(void)
 {
 	u8 id;
-	id = MAG_ReadByte(Chip_id);
+	MAG_ReadByte(Chip_id,&id);
 	if(id != 0xFF)
 		return 0;
 	#ifdef MAG_HMC5883
@@ -47,10 +47,10 @@ void MAG_Data_Update(void)
 	float yaw_x,yaw_y;
 	float norm,mx=0,my=0,mz=0;
 	float pitch,roll;
-	MAG_Data.sta=MAG_ReadByte(Reg_Status);//读取状态
+	MAG_ReadByte(Reg_Status,&(MAG_Data.sta));//读取状态
 	if(MAG_Data.sta&MAG_DRY) //数据准备好，读取数据
 	{
-	 MAG_RD_Buff(0x00,buff,6);
+	 MAG_RD_Buff(0x00,6,buff);
 		if(!(MAG_Data.sta&MAG_OVL))
 		{
 	      MAG_Data.x=(s16)(buff[1]<<8)+buff[0];
@@ -161,48 +161,24 @@ void MAG_Error_Det(void)
 		 MAG_Data.Err = 0;
 }
 /******************************************/
-static void MAG_RD_Buff(u8 addr,u8 *buf,u8 len)
+static int MAG_RD_Buff(u8 addr,u8 size,u8* pBuff)
 {
-	u8 i;
-	IIC_Start();
-	IIC_Send_Byte(Address);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(0x00);
-	IIC_Wait_Ack();
-	IIC_Start();
-	IIC_Send_Byte(Address+1);
-	IIC_Wait_Ack();
-	for(i=0;i<len-1;i++)
-	{
-		buf[i]=IIC_Read_Byte(1);
-	}
-	buf[i]=IIC_Read_Byte(0);
-	IIC_Stop();
+    int res;
+	res = Api_IIC_ReadBytes(MAG_DeviceID, addr, size, pBuff);
+    return res;
 }
-static void MAG_WriteByte(u8 addr,u8 dat)
+static int MAG_WriteByte(u8 addr,u8 data)
 {
-	IIC_Start();
-	IIC_Send_Byte(Address);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(addr);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(dat);
-	IIC_Wait_Ack();
-	IIC_Stop();
+    int res;
+    u8* pBuff;
+    *pBuff = data;
+	res = Api_IIC_WriteBytes(MAG_DeviceID, addr,1,pBuff);
+    return res;
 }
-static u8 MAG_ReadByte(u8 addr)
+static int MAG_ReadByte(u8 addr,u8* pData)
 {
-	u8 temp;
-	IIC_Start();
-	IIC_Send_Byte(Address);
-	IIC_Wait_Ack();
-	IIC_Send_Byte(addr);
-	IIC_Wait_Ack();
-	IIC_Start();
-	IIC_Send_Byte(Address+1);
-	IIC_Wait_Ack();
-	temp=IIC_Read_Byte(0);
-	IIC_Stop();
-	return temp;
+    int res;
+	  res = Api_IIC_ReadBytes(MAG_DeviceID, addr, 1,pData);
+    return res;
 }
 

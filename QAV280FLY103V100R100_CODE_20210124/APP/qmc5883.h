@@ -54,7 +54,7 @@ void MAG_Error_Det(void);
 #endif
 /**********************************/
 #ifdef   MAG_QMC5883
-#define	 Address  0x1a
+#define	 MAG_DeviceID  0x1a
 #define  Reg_XData_L 0x00
 #define  Reg_XData_H 0x01
 #define  Reg_YData_L 0x02

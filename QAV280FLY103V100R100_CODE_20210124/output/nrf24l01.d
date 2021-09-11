@@ -36,6 +36,7 @@
 .\output\nrf24l01.o: APP\mpu6050.h
 .\output\nrf24l01.o: APP\filter.h
 .\output\nrf24l01.o: APP\control.h
+.\output\nrf24l01.o: .\Drive\iic.h
 .\output\nrf24l01.o: APP\ms5611.h
 .\output\nrf24l01.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 .\output\nrf24l01.o: C:\Keil\ARM\ARMCC\Bin\..\include\math.h

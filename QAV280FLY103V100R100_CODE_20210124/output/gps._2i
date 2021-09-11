@@ -1,6 +1,0 @@
--c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\Libraries\CMSIS\CM3\CoreSupport -I .\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive
--I F:\STM32\STM32F103C8\F1-FLY-Controller-V1\RTE
--I D:\keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
--I D:\keil\ARM\CMSIS\Include
--D__UVISION_VERSION="518" -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER
--o .\output\gps.o --omf_browse .\output\gps.crf --depend .\output\gps.d --feedback ".\output\template.fed" "APP\gps.c"

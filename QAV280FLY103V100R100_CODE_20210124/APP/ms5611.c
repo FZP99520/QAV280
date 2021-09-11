@@ -19,9 +19,9 @@ u8 MS5611_Init(void)
     u8 sig;
     u8 i;
     Delay_ms(10); // No idea how long the chip takes to power-up, but let's make it 10ms
-    IIC_Read_Buff(MS5611_ADDR, CMD_PROM_RD, &sig, 1);
+    Api_IIC_ReadBytes(MS5611_ADDR, CMD_PROM_RD,1, &sig);
    
-	  MS5611.OffsetFinished=0;
+	MS5611.OffsetFinished=0;
     MS5611.OffsetReq=1;
     ms5611_reset();
 	  Delay_ms(100);
@@ -36,30 +36,30 @@ u8 MS5611_Init(void)
 }
 void ms5611_reset(void)
 {
-    IIC_Write_CMD(MS5611_ADDR,CMD_RESET);
+    Api_IIC_Write_CMD(MS5611_ADDR,CMD_RESET);
     Delay_ms(10);
 }
-u16 ms5611_prom(int8_t coef_num)
+static u16 ms5611_prom(int8_t coef_num)
 {
-   uint8_t rxbuf[2] = { 0, 0 };
-   IIC_Read_Buff(MS5611_ADDR, CMD_PROM_RD + coef_num * 2,rxbuf, 2); // send PROM READ command
+   u8 rxbuf[2] = { 0, 0 };
+   Api_IIC_ReadBytes(MS5611_ADDR, CMD_PROM_RD + coef_num * 2, 2 ,rxbuf); // send PROM READ command
    return rxbuf[0] << 8 | rxbuf[1];
 
 }
 u32 ms5611_read_adc(void)
 {
    uint8_t rxbuf[3];
-   IIC_Read_Buff(MS5611_ADDR, CMD_ADC_READ, rxbuf, 3); // read ADC
+   Api_IIC_ReadBytes(MS5611_ADDR, CMD_ADC_READ, 3 ,rxbuf); // read ADC
    return (rxbuf[0] << 16) | (rxbuf[1] << 8) | rxbuf[2];
 }
  void MS5611_start_ut(void)
 {
-    IIC_Write_CMD(MS5611_ADDR, CMD_ADC_CONV + CMD_ADC_D2 + CMD_ADC_4096); // D2 (temperature) conversion start!
+    Api_IIC_Write_CMD(MS5611_ADDR, CMD_ADC_CONV + CMD_ADC_D2 + CMD_ADC_4096); // D2 (temperature) conversion start!
 }
 
  void MS5611_start_up(void)
 {
-    IIC_Write_CMD(MS5611_ADDR, CMD_ADC_CONV + CMD_ADC_D1 + CMD_ADC_4096); // D1 (pressure) conversion start!
+    Api_IIC_Write_CMD(MS5611_ADDR, CMD_ADC_CONV + CMD_ADC_D1 + CMD_ADC_4096); // D1 (pressure) conversion start!
 }
 ////////////////////////
 void MS5611_Data_Pros(MS5611_Typedef* ms)

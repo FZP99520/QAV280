@@ -40,8 +40,8 @@
 .\output\timer.o: .\APP\mpu6050.h
 .\output\timer.o: .\APP\filter.h
 .\output\timer.o: .\APP\control.h
-.\output\timer.o: .\APP\qmc5883.h
 .\output\timer.o: .\Drive\iic.h
+.\output\timer.o: .\APP\qmc5883.h
 .\output\timer.o: .\APP\nrf24l01.h
 .\output\timer.o: .\APP\RC.h
 .\output\timer.o: .\APP\gps.h
