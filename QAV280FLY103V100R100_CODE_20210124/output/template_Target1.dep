@@ -1,5 +1,5 @@
 Dependencies for Project 'template', Target 'Target1': (DO NOT MODIFY !)
-F (.\USER\main.c)(0x613E0469)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
+F (.\USER\main.c)(0x613E127F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
 I (.\APP\IncludeAll.h)(0x5F03F3F7)
 I (.\USER\stm32f10x.h)(0x5EBC27DE)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h)(0x582539DE)
@@ -970,38 +970,6 @@ I (.\Drive\kalman.h)(0x5ECA066C)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\arm_math.h)(0x582539DE)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (APP\Position_Control_GPS.h)(0x5F0418D2)
-F (.\APP\log.c)(0x613E057D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\log.o --omf_browse .\output\log.crf --depend .\output\log.d)
-I (APP\log.h)(0x613E0563)
-I (.\USER\stm32f10x.h)(0x5EBC27DE)
-I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h)(0x582539DE)
-I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x57F606B8)
-I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_compiler.h)(0x582539DE)
-I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_armcc.h)(0x582539DE)
-I (.\USER\system_stm32f10x.h)(0x4D783CAA)
-I (.\USER\stm32f10x_conf.h)(0x4D99A59E)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x571F08B8)
-I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x571F08B8)
 F (.\Drive\pwm.c)(0x5EFB3D41)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\pwm.o --omf_browse .\output\pwm.crf --depend .\output\pwm.d)
 I (Drive\pwm.h)(0x5F006083)
 I (.\USER\stm32f10x.h)(0x5EBC27DE)
@@ -1252,7 +1220,7 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x571F08B8)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x571F08B8)
 I (.\APP\nrf24l01.h)(0x5CEFAC9E)
 I (.\APP\systick\systick.h)(0x58CE4E3E)
-F (.\Drive\usart.c)(0x5E97F25B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\usart.o --omf_browse .\output\usart.crf --depend .\output\usart.d)
+F (.\Drive\usart.c)(0x613E11FF)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\USER -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\LED -I .\APP\USART -I .\APP\systick -I .\APP\PRINTF -I .\APP -I .\Drive-IC:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1-IC:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_ -DHD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3-o .\output\usart.o --omf_browse .\output\usart.crf --depend .\output\usart.d)
 I (Drive\usart.h)(0x5EF43F10)
 I (.\USER\stm32f10x.h)(0x5EBC27DE)
 I (C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h)(0x582539DE)

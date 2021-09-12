@@ -3,12 +3,25 @@
 #include "gps.h"
 #include "dma.h"
 #include "printf.h"
+#include "stdio.h"
 _USART_TypeDef USART1_;
 _USART_TypeDef USART2_;
 u8 USART1_TX_Buff[USART1_Buff_Len];
 u8 USART1_RX_Buff[USART1_Buff_Len];
 u8 USART2_TX_Buff[USART2_Buff_Len];
 u8 USART2_RX_Buff[USART2_Buff_Len];
+
+#define LOG_USE_USART2
+
+//int fputc(int ch, FILE * p)
+//{
+//    #ifdef LOG_USE_USART1
+//    USART1_SendData(&ch,1);
+//    #elif defined (LOG_USE_USART2)
+//    USART2_SendData(&ch,1);
+//    #endif
+//    return ch;
+//}
 
 u8 USART1_SendData(u8 *buff,u8 len)
 {

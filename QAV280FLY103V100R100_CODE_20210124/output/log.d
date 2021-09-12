@@ -31,3 +31,6 @@
 .\output\log.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\output\log.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\output\log.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\output\log.o: .\Drive\usart.h
+.\output\log.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
+.\output\log.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdio.h

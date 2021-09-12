@@ -10,6 +10,7 @@ int main()
 	u16 del_cnt=0;
 	u8 r;
 	u8 dir=0;
+    int times=0;
 	Clock_Init();
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //·Ö×é
 	IIC_Init();
@@ -65,9 +66,10 @@ int main()
 	
 	while(1)
 	{
-	    sprintf(str_buff,"hello! Welcome to my STM32\n");
+	    sprintf(str_buff,"times:%d,hello! Welcome to my STM32\n",times);
 	    USART2_SendData(str_buff,sizeof(str_buff));
         Delay_ms(200);
+        times++;
 //      add test
 //		FlashErase(FlashDataBase,1);
 //		FlashWrite(FlashDataBase,BuffWrite,10);
