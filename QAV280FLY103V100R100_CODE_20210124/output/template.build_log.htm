@@ -22,244 +22,25 @@ Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
 C:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\template.uvprojx
-Project File Date:  08/04/2021
+Project File Date:  09/11/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil\ARM\ARMCC\Bin'
-Rebuild target 'Target1'
-compiling ahrs.c...
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\ahrs.c(101): warning:  #550-D: variable "my_gz"  was set but never used
-  	  float my_gz;
-APP\ahrs.c(217): warning:  #550-D: variable "halfemx"  was set but never used
-  	  float halfemx=0,halfemy=0,halfemz=0;
-APP\ahrs.c(217): warning:  #550-D: variable "halfemy"  was set but never used
-  	  float halfemx=0,halfemy=0,halfemz=0;
-APP\ahrs.c(217): warning:  #550-D: variable "halfemz"  was set but never used
-  	  float halfemx=0,halfemy=0,halfemz=0;
-APP\ahrs.c(365): warning:  #1-D: last line of file ends without a newline
-  }
-APP\ahrs.c(354): warning:  #177-D: function "To_180_degrees"  was declared but never referenced
-  float To_180_degrees(float x)
-APP\ahrs.c: 7 warnings, 0 errors
-compiling control.c...
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\control.c(14): warning:  #177-D: variable "HighLockState"  was declared but never referenced
-  static u8 HighLockState=1;
-APP\control.c: 5 warnings, 0 errors
-compiling clock.c...
-compiling led.c...
-compiling stm32f10x_it.c...
-compiling systick.c...
-compiling nrf24l01.c...
-compiling IMU.c...
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IMU.c(152): warning:  #1-D: last line of file ends without a newline
-  }
-APP\IMU.c: 2 warnings, 0 errors
-compiling filter.c...
-compiling height.c...
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\includeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\height.c: 4 warnings, 0 errors
-compiling gps.c...
-compiling ms5611.c...
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\ms5611.c: 4 warnings, 0 errors
-compiling main.c...
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-USER\main.c(7): warning:  #177-D: variable "flag_esc_cal"  was declared but never referenced
-  	u8 flag_esc_cal=0;
-USER\main.c(8): warning:  #177-D: variable "del_cnt"  was declared but never referenced
-  	u16 del_cnt=0;
-USER\main.c(9): warning:  #177-D: variable "r"  was declared but never referenced
-  	u8 r;
-USER\main.c(10): warning:  #177-D: variable "dir"  was declared but never referenced
-  	u8 dir=0;
-USER\main.c: 8 warnings, 0 errors
-compiling RC.c...
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\RC.c(22): warning:  #177-D: variable "i"  was declared but never referenced
-  	static u8 i=0;
-APP\RC.c(193): warning:  #177-D: variable "temp_f32"  was declared but never referenced
-  	float temp_f32;
-APP\RC.c(280): warning:  #177-D: variable "temp_u32"  was declared but never referenced
-  	u32 temp_u32;
-APP\RC.c: 7 warnings, 0 errors
-compiling flash.c...
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\flash.c(25): warning:  #177-D: variable "data"  was declared but never referenced
-    uint16_t i, data = 0;
-APP\flash.c(171): warning:  #1-D: last line of file ends without a newline
-  }
-APP\flash.c: 6 warnings, 0 errors
-compiling ANO_DT.c...
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\ANO_DT.c(179): warning:  #550-D: variable "RxBuffer"  was set but never used
-  	static u8 RxBuffer[50];
-APP\ANO_DT.c: 5 warnings, 0 errors
-compiling driver.c...
-Drive\driver.h(11): warning:  #1-D: last line of file ends without a newline
-  #endif
-Drive\driver.c(10): warning:  #1-D: last line of file ends without a newline
-  }
-Drive\driver.c: 2 warnings, 0 errors
-assembling startup_stm32f10x_md.s...
-compiling printf.c...
-compiling adc.c...
-Drive\adc.c(9): warning:  #177-D: variable "DMA_InitStructure"  was declared but never referenced
-  	  DMA_InitTypeDef  DMA_InitStructure;
-Drive\adc.c: 1 warning, 0 errors
-compiling Position_Control_GPS.c...
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.c(114): warning:  #1-D: last line of file ends without a newline
-  }
-APP\Position_Control_GPS.c: 5 warnings, 0 errors
-compiling spi.c...
-compiling exti.c...
-compiling dma.c...
-compiling pid.c...
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\includeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\pid.c: 4 warnings, 0 errors
-compiling usart.c...
-Drive\usart.c(179): warning:  #1-D: last line of file ends without a newline
-  }
-Drive\usart.c: 1 warning, 0 errors
-compiling pwm.c...
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-Drive\pwm.c: 4 warnings, 0 errors
-compiling qmc5883.c...
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\includeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\qmc5883.c: 4 warnings, 0 errors
-compiling timer.c...
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-Drive\timer.c: 4 warnings, 0 errors
-compiling mpu6050.c...
-APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\includeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-APP\mpu6050.c: 4 warnings, 0 errors
-compiling kalman.c...
-Drive\kalman.c(92): warning:  #1-D: last line of file ends without a newline
-  }
-Drive\kalman.c: 1 warning, 0 errors
-compiling iic.c...
-compiling stm32f10x_gpio.c...
-compiling stm32f10x_usart.c...
-compiling stm32f10x_rcc.c...
-compiling core_cm3.c...
-compiling misc.c...
-compiling stm32f10x_exti.c...
-compiling stm32f10x_dma.c...
-compiling stm32f10x_spi.c...
-compiling system_stm32f10x.c...
-compiling stm32f10x_flash.c...
-compiling stm32f10x_adc.c...
-compiling stm32f10x_i2c.c...
-compiling stm32f10x_tim.c...
+Build target 'Target1'
+compiling log.c...
 linking...
-Program Size: Code=51364 RO-data=900 RW-data=908 ZI-data=4780  
+Program Size: Code=51472 RO-data=896 RW-data=908 ZI-data=4780  
 FromELF: creating hex file...
-".\output\template.axf" - 0 Error(s), 78 Warning(s).
+".\output\template.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.0.0.pack
-                ARM::CMSIS:CORE:5.0.0
+                ARM::CMSIS:DSP:1.4.6
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.0.0
    * Component: DSP Version: 1.4.6
+   * Component: CORE Version: 5.0.0
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1
@@ -268,12 +49,12 @@ Package Vendor: ARM
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.0.0
-
    * Component: ARM::CMSIS:DSP:1.4.6
       Include file:  CMSIS\Include\arm_math.h
       Library file:  CMSIS\Lib\ARM\arm_cortexM3l_math.lib
-Build Time Elapsed:  00:00:03
+
+   * Component: ARM::CMSIS:CORE:5.0.0
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

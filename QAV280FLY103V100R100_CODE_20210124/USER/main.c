@@ -1,9 +1,11 @@
 #include "IncludeAll.h"
 #include "stdlib.h"
+#include "stdio.h"
 u16 BuffWrite[10]={1,2,3,4,5,6,7,8,9,10};
 u16 BuffRead[10];
 int main()
 {
+    char str_buff[64];
 	u8 flag_esc_cal=0;
 	u16 del_cnt=0;
 	u8 r;
@@ -44,7 +46,7 @@ int main()
 	 PID_STA = Flash_Read_PID();
 	 GPS_Position_PID_Para_Init();
 	
-//USART1_Init(9600);
+    USART1_Init(115200);
 	USART2_Init(115200);
 	TIMER4_Init();
 	#define ESC_CAL 0
@@ -63,6 +65,9 @@ int main()
 	
 	while(1)
 	{
+	    sprintf(str_buff,"hello! Welcome to my STM32\n");
+	    USART2_SendData(str_buff,sizeof(str_buff));
+        Delay_ms(200);
 //      add test
 //		FlashErase(FlashDataBase,1);
 //		FlashWrite(FlashDataBase,BuffWrite,10);

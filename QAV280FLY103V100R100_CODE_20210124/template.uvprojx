@@ -415,16 +415,6 @@
               <FilePath>.\APP\ms5611.c</FilePath>
             </File>
             <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\APP\mpu6050.c</FilePath>
-            </File>
-            <File>
-              <FileName>qmc5883.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\APP\qmc5883.c</FilePath>
-            </File>
-            <File>
               <FileName>control.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\control.c</FilePath>
@@ -484,16 +474,21 @@
               <FileType>1</FileType>
               <FilePath>.\APP\Position_Control_GPS.c</FilePath>
             </File>
+            <File>
+              <FileName>qmc5883.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\qmc5883.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\mpu6050.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>drive</GroupName>
           <Files>
-            <File>
-              <FileName>iic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Drive\iic.c</FilePath>
-            </File>
             <File>
               <FileName>pwm.c</FileName>
               <FileType>1</FileType>
@@ -543,6 +538,11 @@
               <FileName>driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Drive\driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\iic.c</FilePath>
             </File>
           </Files>
         </Group>
