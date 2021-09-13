@@ -22,35 +22,21 @@ Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
 C:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\template.uvprojx
-Project File Date:  09/11/2021
+Project File Date:  09/12/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil\ARM\ARMCC\Bin'
 Build target 'Target1'
-compiling main.c...
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\APP\IncludeAll.h(30): warning:  #1-D: last line of file ends without a newline
-  #endif
-USER\main.c(70): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
-  	    USART2_SendData(str_buff,sizeof(str_buff));
-USER\main.c(9): warning:  #177-D: variable "flag_esc_cal"  was declared but never referenced
-  	u8 flag_esc_cal=0;
-USER\main.c(10): warning:  #177-D: variable "del_cnt"  was declared but never referenced
-  	u16 del_cnt=0;
-USER\main.c(11): warning:  #177-D: variable "r"  was declared but never referenced
-  	u8 r;
-USER\main.c(12): warning:  #177-D: variable "dir"  was declared but never referenced
-  	u8 dir=0;
-USER\main.c: 9 warnings, 0 errors
+compiling usart.c...
+Drive\usart.c(117): warning:  #223-D: function "Delay_us" declared implicitly
+          Delay_us(100);
+Drive\usart.c(194): warning:  #1-D: last line of file ends without a newline
+  }
+Drive\usart.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=51492 RO-data=900 RW-data=908 ZI-data=4780  
+Program Size: Code=51712 RO-data=896 RW-data=908 ZI-data=4908  
 FromELF: creating hex file...
-".\output\template.axf" - 0 Error(s), 9 Warning(s).
+".\output\template.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -69,8 +55,8 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:DSP:1.4.6
-      Include file:  CMSIS\Include\arm_math.h
       Library file:  CMSIS\Lib\ARM\arm_cortexM3l_math.lib
+      Include file:  CMSIS\Include\arm_math.h
 
    * Component: ARM::CMSIS:CORE:5.0.0
 Build Time Elapsed:  00:00:01

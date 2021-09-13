@@ -19,6 +19,7 @@
 ".\output\position_control_gps.o"
 ".\output\qmc5883.o"
 ".\output\mpu6050.o"
+".\output\log.o"
 ".\output\pwm.o"
 ".\output\timer.o"
 ".\output\pid.o"

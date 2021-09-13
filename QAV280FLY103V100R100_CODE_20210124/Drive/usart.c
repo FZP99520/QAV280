@@ -111,10 +111,12 @@ void USART1_IRQHandler(void)
 u8 USART2_SendData(u8 *buff,u8 len)
 {
 	u16 cnt=0;
-	while(cnt<500 && USART2_.TX_busy ==1)
+	while(USART2_.TX_busy ==1)
 	{
 		cnt++;
-		return 0;
+        Delay_us(100);
+        if(cnt>512)
+		    return 0;
 	}
 	memcpy(USART2_TX_Buff,buff,len);//copy memory
   DMA_SetCurrDataCounter(DMA1_Channel7,len);

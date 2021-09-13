@@ -7,6 +7,8 @@
 #include "qmc5883.h"
 #include "flash.h"
 #include "RC.h"
+#include "log.h"
+
 #define Ka 0.08f
 IMU_Data_TypeDef IMU_Data;
 #define  GyroOffsetNum   200
@@ -35,7 +37,10 @@ u8 MPU6050_Init(void) //初始化
 	u8 dev_id;
 	MPU6050_Read_Data(WHO_AM_I,&dev_id);
 	if(dev_id != 0x68 )
-		 return 0;
+    {
+      DebugLog("[ERROR]MPU6050 Init Fail:Device ID != 0x68\n");
+      return 0;
+    }
 	MPU6050_Write_Data(PWR_MGMT_1, 0x80);//复位
 	Delay_ms(100);
 	MPU6050_Write_Data(PWR_MGMT_1, 0x0b);//使用Z gyro轴作为参考时钟
@@ -53,7 +58,7 @@ u8 MPU6050_Init(void) //初始化
 	MPU6050_Write_Data(INT_EN,0x00);//Disable interrupt
 	
 	MPU6050_Write_Data(INT_EN,0x00);  //设置中断,closed
-	
+	DebugLog("[OK]MPU6050 Init OK~\n");
 	return 1;
 }
 void IMU_Data_Update(void)

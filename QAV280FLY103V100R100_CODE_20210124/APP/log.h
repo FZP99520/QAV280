@@ -5,6 +5,7 @@
 
 extern u8 log_buff[128];
 
-void log(void);
+void DebugLog(const char* format,...);
+
 
 #endif

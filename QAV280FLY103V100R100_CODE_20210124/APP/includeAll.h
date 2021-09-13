@@ -27,4 +27,5 @@
 #include "kalman.h"
 #include "filter.h"
 #include "Position_Control_GPS.h"
+#include "log.h"
 #endif

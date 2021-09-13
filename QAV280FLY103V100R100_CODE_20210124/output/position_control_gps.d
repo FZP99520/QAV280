@@ -62,3 +62,4 @@
 .\output\position_control_gps.o: C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\arm_math.h
 .\output\position_control_gps.o: C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h
 .\output\position_control_gps.o: C:\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\position_control_gps.o: APP\log.h

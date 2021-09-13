@@ -1,6 +1,7 @@
 #include "IncludeAll.h"
 #include "stdlib.h"
 #include "stdio.h"
+#include "log.h"
 u16 BuffWrite[10]={1,2,3,4,5,6,7,8,9,10};
 u16 BuffRead[10];
 int main()
@@ -13,10 +14,19 @@ int main()
     int times=0;
 	Clock_Init();
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //·Ö×é
+	
+	USART1_Init(115200);
+	USART2_Init(115200);
+	Delay_ms(100);
+	
 	IIC_Init();
+    DebugLog("Driver:IIC init finished~\n");
 	Led_Init();
+    DebugLog("Driver:LED init finished~\n");
 	Adc_Init();
+    DebugLog("Driver:ADC init finished~\n");
 	PWM_Init();  
+    DebugLog("Driver:PWM init finished~\n");
 	Delay_ms(500);
 	Delay_ms(500);
 	
@@ -47,8 +57,6 @@ int main()
 	 PID_STA = Flash_Read_PID();
 	 GPS_Position_PID_Para_Init();
 	
-    USART1_Init(115200);
-	USART2_Init(115200);
 	TIMER4_Init();
 	#define ESC_CAL 0
 		#if ESC_CAL
@@ -66,8 +74,9 @@ int main()
 	
 	while(1)
 	{
-	    sprintf(str_buff,"times:%d,hello! Welcome to my STM32\n",times);
-	    USART2_SendData(str_buff,sizeof(str_buff));
+//	    sprintf(str_buff,"times:%d,hello! Welcome to my STM32\n",times);
+//	    USART2_SendData(str_buff,sizeof(str_buff));
+//        DebugLog("times:%d 0x%x,Welcome to STM32,QAV280 Project is waiting for you~\n",times,times);
         Delay_ms(200);
         times++;
 //      add test

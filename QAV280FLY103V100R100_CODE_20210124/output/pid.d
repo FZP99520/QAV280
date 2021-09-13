@@ -63,3 +63,4 @@
 .\output\pid.o: C:\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm3.h
 .\output\pid.o: C:\Keil\ARM\ARMCC\Bin\..\include\string.h
 .\output\pid.o: APP\Position_Control_GPS.h
+.\output\pid.o: APP\log.h
