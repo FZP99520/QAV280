@@ -4,6 +4,7 @@
 #include "dma.h"
 #include "printf.h"
 #include "stdio.h"
+#include "systick.h"
 _USART_TypeDef USART1_;
 _USART_TypeDef USART2_;
 u8 USART1_TX_Buff[USART1_Buff_Len];
@@ -111,16 +112,17 @@ void USART1_IRQHandler(void)
 u8 USART2_SendData(u8 *buff,u8 len)
 {
 	u16 cnt=0;
-	while(USART2_.TX_busy ==1)
-	{
-		cnt++;
-        Delay_us(100);
-        if(cnt>512)
-		    return 0;
-	}
+//	while(USART2_.TX_busy ==1)
+//	{
+//		cnt++;
+//        Delay_us(100);
+//        if(cnt>1000)
+//		    return 0;
+//	}
+    while(DMA_GetCurrDataCounter(DMA1_Channel7) || USART2_.TX_busy == 1);
 	memcpy(USART2_TX_Buff,buff,len);//copy memory
-  DMA_SetCurrDataCounter(DMA1_Channel7,len);
-  DMA_Cmd(DMA1_Channel7,ENABLE);//Open DMA1 channel7
+    DMA_SetCurrDataCounter(DMA1_Channel7,len);
+    DMA_Cmd(DMA1_Channel7,ENABLE);//Open DMA1 channel7
 	USART2_.TX_busy = 1;
 	return 1;//succeed
 }
@@ -158,7 +160,7 @@ void USART2_Init(u32 baudrate)
 	 /*******************************/
 	 NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
 	 NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0;//抢占优先级
-	 NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;	//子优先级3
+	 NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;	//子优先级3
 	 NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQ通道使能
 	 NVIC_Init(&NVIC_InitStructure);	//根据指定的参数初始化VIC寄存器
 	 USART_DMACmd(USART2,USART_DMAReq_Tx|USART_DMAReq_Rx,ENABLE);//使能DMA串口发送和接受请求
@@ -173,8 +175,8 @@ void USART2_IRQHandler(void)
 		if(USART2_.DMA_TX_OK == 1)
 		{
 		  USART2_.TX_busy=0;//Relax bus
-			USART2_.DMA_TX_OK = 0;
-			USART2_.tx_OK= 1;
+		  USART2_.DMA_TX_OK = 0;
+		  USART2_.tx_OK= 1;
 		}
 	}
 	if(USART_GetITStatus(USART2,USART_IT_IDLE)!=RESET)

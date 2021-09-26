@@ -1,6 +1,7 @@
 #include "IncludeAll.h"
 #include "flash.h"
 #include "string.h"
+#include "log.h"
 FLASH_Status FlashErase(uint32_t addr, uint8_t count)
 {
   uint8_t i;
@@ -69,7 +70,7 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 {
 	u16 BuffRead[6];
   FlashRead(MPUAccelOffsetAddr,BuffRead,3);
-	if(BuffRead[0]!=0xFFFF && BuffRead[1]!= 0xFFFF &&BuffRead[2]!= 0xFFFF)
+	if(BuffRead[0]!=0xFFFF && BuffRead[1]!= 0xFFFF && BuffRead[2]!= 0xFFFF)
 	{
 		imu_data->os_accel_x = (s16)BuffRead[0];
 		imu_data->os_accel_y = (s16)BuffRead[1];
@@ -77,11 +78,15 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 		imu_data->AccelOffsetFinished =1;
 		imu_data->AccelOffsetReq=0;
 		//add test
+		DebugLog("imu_data->os_accel_x = 0x%x\n",imu_data->os_accel_x);
+        DebugLog("imu_data->os_accel_y = 0x%x\n",imu_data->os_accel_y);
+        DebugLog("imu_data->os_accel_z = 0x%x\n",imu_data->os_accel_z);
 	}
 	else
 	{
 		imu_data->AccelOffsetFinished =0;
 		imu_data->AccelOffsetReq=1;
+        DebugLog("imu_data->os_accel_x/y/z are empty!\n");
 	}
 	FlashRead(MPUGyroOffsetAddr,BuffRead,3);
 	if(BuffRead[0]!=0xFFFF && BuffRead[1]!= 0xFFFF && BuffRead[2]!= 0xFFFF)
@@ -91,6 +96,10 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 		imu_data->os_gyro_z = (s16)BuffRead[2];
 		imu_data->GyroOffsetFinished =1;
 		imu_data->GyroOffsetReq=0;
+        DebugLog("imu_data->os_gyro_x = 0x%x\n",imu_data->os_gyro_x);
+        DebugLog("imu_data->os_gyro_y = 0x%x\n",imu_data->os_gyro_y);
+        DebugLog("imu_data->os_gyro_z = 0x%x\n",imu_data->os_gyro_z);
+        DebugLog("imu_data->os_gyro_x/y/z are empty!\n");
 	}
 	else
 	{
@@ -102,17 +111,24 @@ void Flash_Read_Sensor_Data(IMU_Data_TypeDef* imu_data,MAG_Data_TypeDef* mag,MS5
 	{
 		mag->xoffset = BuffRead[0];
 		mag->yoffset = BuffRead[1];
-	  mag->zoffset = BuffRead[2];
+	    mag->zoffset = BuffRead[2];
 		mag->xgain   = (float)BuffRead[3]/1000.0f;
 		mag->ygain   = (float)BuffRead[4]/1000.0f;
 		mag->zgain   = (float)BuffRead[5]/1000.0f;
 		mag->MagOffsetFinished = 1;
 		mag->MagOffsetReq=0;
+        DebugLog("mag->xoffset = 0x%x\n",mag->xoffset);
+        DebugLog("mag->yoffset = 0x%x\n",mag->yoffset);
+        DebugLog("mag->zoffset = 0x%x\n",mag->zoffset);
+        DebugLog("mag->xgain = 0x%f\n",mag->xgain);
+        DebugLog("mag->xgain = 0x%f\n",mag->ygain);
+        DebugLog("mag->xgain = 0x%f\n",mag->zgain);
 	}
 	else
 	{
 		mag->MagOffsetFinished = 0;
 		mag->MagOffsetReq=1;
+        DebugLog("mag offset data are empty!\n");
 	}
 }
 //read pid data from flash

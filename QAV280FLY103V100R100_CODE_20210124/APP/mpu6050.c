@@ -25,7 +25,7 @@ MoveAvarageFilter_TypeDef Filter_Gyro_Z={4,0,0,{0}};
 float Pitch,Roll,Yaw; 
 
 static int MPU6050_RD_Buff(u8 addr,u8 size,u8* pBuff);
-static void MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* imu_data);
+static int MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* imu_data);
 static u8 MPU_GET_ACCEL_OFFSET(IMU_Data_TypeDef* imu_data);
 static u8 MPU_GET_GYRO_OFFSET(IMU_Data_TypeDef* imu_data);
 static int MPU6050_Write_Data(u8 addr,u8 data);
@@ -35,10 +35,12 @@ u8 temp;
 u8 MPU6050_Init(void) //初始化
 {
 	u8 dev_id;
-	MPU6050_Read_Data(WHO_AM_I,&dev_id);
+    int res;
+	res = MPU6050_Read_Data(WHO_AM_I,&dev_id);
 	if(dev_id != 0x68 )
     {
       DebugLog("[ERROR]MPU6050 Init Fail:Device ID != 0x68\n");
+      DebugLog("MPU6050_Read_data res=%d\n",res);
       return 0;
     }
 	MPU6050_Write_Data(PWR_MGMT_1, 0x80);//复位
@@ -59,21 +61,24 @@ u8 MPU6050_Init(void) //初始化
 	
 	MPU6050_Write_Data(INT_EN,0x00);  //设置中断,closed
 	DebugLog("[OK]MPU6050 Init OK~\n");
-	return 1;
 }
 void IMU_Data_Update(void)
 {
-  MPU_RD_ACCEL_GYRO(&IMU_Data); //Read data from mpu6050 first
+    int res;
+    res = MPU_RD_ACCEL_GYRO(&IMU_Data); //Read data from mpu6050 first
+    if(res != 1) 
+    {
+      return;
+    }
 	if(IMU_Data.AccelOffsetReq == 1)//需要校准时不做四元数解算
 	{
 		   if( MPU_GET_ACCEL_OFFSET(&IMU_Data)==1)
 			 {
-         IMU.q0 = 1.0f;
+                 IMU.q0 = 1.0f;
 				 IMU.q1 = 0;
 				 IMU.q2 = 0;
 				 IMU.q3 = 0;
 			 }
-			 return;
 	}
 	if(IMU_Data.GyroOffsetReq == 1)//需要校准时不做四元数解算
 	{
@@ -84,14 +89,15 @@ void IMU_Data_Update(void)
 				 IMU.q2 = 0;
 				 IMU.q3 = 0;
 			 }
-		     return;
 	}
-		IMU_Data.ACCEL_X = IMU_Data.ACCEL_X - IMU_Data.os_accel_x;
-		IMU_Data.ACCEL_Y = IMU_Data.ACCEL_Y - IMU_Data.os_accel_y;
-		IMU_Data.ACCEL_Z = IMU_Data.ACCEL_Z - IMU_Data.os_accel_z;	
-		IMU_Data.GYRO_X  = IMU_Data.GYRO_X - IMU_Data.os_gyro_x;
-		IMU_Data.GYRO_Y  = IMU_Data.GYRO_Y - IMU_Data.os_gyro_y;
-		IMU_Data.GYRO_Z  = IMU_Data.GYRO_Z - IMU_Data.os_gyro_z;
+    if(IMU_Data.AccelOffsetFinished == 1 && IMU_Data.GyroOffsetFinished == 1)
+   {
+	IMU_Data.ACCEL_X = IMU_Data.ACCEL_X - IMU_Data.os_accel_x;
+	IMU_Data.ACCEL_Y = IMU_Data.ACCEL_Y - IMU_Data.os_accel_y;
+	IMU_Data.ACCEL_Z = IMU_Data.ACCEL_Z - IMU_Data.os_accel_z;	
+	IMU_Data.GYRO_X  = IMU_Data.GYRO_X - IMU_Data.os_gyro_x;
+	IMU_Data.GYRO_Y  = IMU_Data.GYRO_Y - IMU_Data.os_gyro_y;
+	IMU_Data.GYRO_Z  = IMU_Data.GYRO_Z - IMU_Data.os_gyro_z;
 	
 	IMU_Data.ACCEL_X = MoveAvarageFilter(&Filter_Acc_X,IMU_Data.ACCEL_X);//滑动平均滤波
 	IMU_Data.ACCEL_Y = MoveAvarageFilter(&Filter_Acc_Y,IMU_Data.ACCEL_Y);//滑动平均滤波
@@ -103,17 +109,22 @@ void IMU_Data_Update(void)
 	IMU_Data.gx = IMU_Data.GYRO_X*GyroCoefficient;
 	IMU_Data.gy = IMU_Data.GYRO_Y*GyroCoefficient;
 	IMU_Data.gz = IMU_Data.GYRO_Z*GyroCoefficient;
-	
-	
+    
 	IMU_Update(IMU_Data,MAG_Data.yaw,1);
+    }
 }
 /*
 read mpu6050 data from registers
 */
-static void MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* mpu)
+static int MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* mpu)
 {
+      int res;
 	  u8 accel_temp_gyro[14];
-	  MPU6050_RD_Buff(ACCEL_XOUT_H,14,accel_temp_gyro);
+	  res = MPU6050_RD_Buff(ACCEL_XOUT_H,14,accel_temp_gyro);
+      if(res != 1) 
+      {
+        return -1;
+      }
 	  mpu->ACCEL_X = ((s16)(accel_temp_gyro[0])<<8 |accel_temp_gyro[1]) ;
 	  mpu->ACCEL_Y = ((s16)(accel_temp_gyro[2])<<8 |accel_temp_gyro[3]) ;
 	  mpu->ACCEL_Z = ((s16)(accel_temp_gyro[4])<<8 |accel_temp_gyro[5]) ;
@@ -121,6 +132,7 @@ static void MPU_RD_ACCEL_GYRO(IMU_Data_TypeDef* mpu)
 	  mpu->GYRO_X =  ((s16)(accel_temp_gyro[8])<<8 |accel_temp_gyro[9]);
   	  mpu->GYRO_Y =  ((s16)(accel_temp_gyro[10])<<8 |accel_temp_gyro[11]);
 	  mpu->GYRO_Z =  ((s16)(accel_temp_gyro[12])<<8 |accel_temp_gyro[13]);
+      return 1;
 }
 /*************************/
 static u8 MPU_GET_ACCEL_OFFSET(IMU_Data_TypeDef* imu)

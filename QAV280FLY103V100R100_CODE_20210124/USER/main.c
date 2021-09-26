@@ -18,7 +18,8 @@ int main()
 	USART1_Init(115200);
 	USART2_Init(115200);
 	Delay_ms(100);
-	
+	DebugLog("Power On!\n");
+    
 	IIC_Init();
     DebugLog("Driver:IIC init finished~\n");
 	Led_Init();

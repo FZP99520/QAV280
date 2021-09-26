@@ -14,7 +14,6 @@ void Led_Init()  //LED初始化函数
 	/**********************************/
 	 GPIO_Init(GPIOA,&GPIO_InitStruct);   //GPIO初始化
    GPIO_SetBits(GPIOA,LED_Pin);	
-	//This is branch 2021
 }
 void LedStart_Show(void)
 {

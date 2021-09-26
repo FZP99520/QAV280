@@ -15,7 +15,13 @@
 #define MS5611OffsetAddr    (uint32_t)(0x8000000+1024*104) 
 #define PID_Data_Addr       (uint32_t)(0x8000000+1024*105)
 
-
+typedef enum
+{
+  E_MPU_Accel=0,
+  E_MPU_Gyro,
+  E_MAG,
+  E_PID
+}Flash_Data_TypeDef;
 FLASH_Status FlashErase(uint32_t addr, uint8_t count);
 uint16_t FlashWrite(uint32_t addr, uint16_t *buffer, uint16_t length);
 uint16_t FlashRead(uint32_t addr, u16* buffer, uint32_t length);

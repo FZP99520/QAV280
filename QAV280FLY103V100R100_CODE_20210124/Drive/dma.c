@@ -86,12 +86,12 @@ void USART2_DMA_Init(void)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;  
 	NVIC_Init(&NVIC_InitStructure);
 }
-void DMA1_Channel7_IRQHandler(void)//USART1 TX DMA interrupt handler
+void DMA1_Channel7_IRQHandler(void)//USART2 TX DMA interrupt handler
 {
 	if(DMA_GetFlagStatus(DMA1_FLAG_TC7)!=RESET)
 	{
 		DMA_ClearFlag(DMA1_FLAG_TC7);
-		DMA_Cmd(DMA1_Channel7,DISABLE);//Shut down dma1 channel4
+		DMA_Cmd(DMA1_Channel7,DISABLE);//Shut down dma1 channel7
 		USART2_.DMA_TX_OK = 1;
 		USART2_.TX_Cnt++;
 	}

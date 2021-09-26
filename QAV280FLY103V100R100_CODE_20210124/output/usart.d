@@ -36,3 +36,4 @@
 .\output\usart.o: Drive\dma.h
 .\output\usart.o: .\APP\PRINTF\printf.h
 .\output\usart.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\usart.o: .\APP\systick\systick.h

@@ -34,3 +34,4 @@
 .\output\log.o: .\Drive\usart.h
 .\output\log.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\log.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\log.o: C:\Keil\ARM\ARMCC\Bin\..\include\string.h
