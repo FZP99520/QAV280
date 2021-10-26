@@ -177,34 +177,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>104</LineNumber>
+          <LineNumber>247</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134245092</Address>
+          <Address>134237372</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\Drive\iic.c</Filename>
+          <Filename>.\APP\mpu6050.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\template\Drive/iic.c\104</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>23</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218030</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\USER\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\template\USER/main.c\23</Expression>
+          <Expression>\\template\APP/mpu6050.c\247</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -313,12 +297,17 @@
         <Ww>
           <count>4</count>
           <WinNumber>2</WinNumber>
-          <ItemText>MS5611.Altitude_Diff_P</ItemText>
+          <ItemText>USART2_</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>2</WinNumber>
           <ItemText>Log_Buff</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>USART2_RX_Buff</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>

@@ -40,8 +40,8 @@ u8 MPU6050_Init(void) //初始化
 	if(dev_id != 0x68 )
     {
       DebugLog("[ERROR]MPU6050 Init Fail:Device ID != 0x68\n");
-      DebugLog("MPU6050_Read_data res=%d\n",res);
-      return 0;
+     DebugLog("MPU6050_Read_data res=%d\n",res);
+     return 0;
     }
 	MPU6050_Write_Data(PWR_MGMT_1, 0x80);//复位
 	Delay_ms(100);
@@ -229,7 +229,7 @@ static int MPU6050_Write_Data(u8 addr,u8 data) //写数据
 {
     int res;
     u8* pBuff;
-    *pBuff = data;
+    pBuff = &data;
 	res = Api_IIC_WriteBytes(MPU_SlaveAddress,addr,1,pBuff);
     return res;
 }
@@ -237,7 +237,7 @@ static int MPU6050_Read_Data(u8 addr,u8* pData) //读取数据
 {
     int res;
     res = Api_IIC_ReadBytes(MPU_SlaveAddress,addr,1,pData);
-	return res;
+	 return res;
 }
 
 static int MPU6050_RD_Buff(u8 addr,u8 size,u8* pBuff)

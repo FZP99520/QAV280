@@ -12,6 +12,12 @@ typedef struct
    u8  m_bSum;//ะฃั้
 }RC_Controller2Quat_Typedef;
 
+typedef enum
+{
+  STATUS_Sensor=0,
+  STATUS_
+}RC_PayloadType;
+
 typedef struct
 {
 		u8 send_version;

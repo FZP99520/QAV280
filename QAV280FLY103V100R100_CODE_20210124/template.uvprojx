@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_ HD,USE_STDPERIPH_DRIVER,ARM_MATH_CM3</Define>
               <Undefine></Undefine>
-              <IncludePath>.\USER;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\APP\LED;.\APP\USART;.\APP\systick;.\APP\PRINTF;.\APP;.\Drive</IncludePath>
+              <IncludePath>.\USER;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\APP\LED;.\APP\USART;.\APP\systick;.\APP\PRINTF;.\APP;.\Drive;.\APP;.\USER</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

@@ -162,17 +162,15 @@ void Api_IIC_Write_CMD(u8 slave_addr,u8 cmd)
 }
 
 //Write bytes
-int Api_IIC_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* pBuff)
+int Api_IIC_WriteBytes(u8 SlaveAddr,u8 RegAddr,u8 size,u8* pBuff)
 {
-    u8 i;
+    u8 i=0;
     int ret;
 	Drv_IIC_Start();
-	Drv_IIC_Send_Byte(DeviceID);
-	ret = Drv_IIC_Wait_Ack();
-    if(ret == 0) return -1;
+	Drv_IIC_Send_Byte(SlaveAddr);
+	Drv_IIC_Wait_Ack();
 	Drv_IIC_Send_Byte(RegAddr);
 	ret = Drv_IIC_Wait_Ack();
-    if(ret == 0) return -1;
 	for(i=0;i<size;i++)
 	{
 	  Drv_IIC_Send_Byte(pBuff[i]);
@@ -186,25 +184,22 @@ int Api_IIC_WriteBytes(u8 DeviceID,u8 RegAddr,u8 size,u8* pBuff)
 }
 
 //Read bytes
-int Api_IIC_ReadBytes(u8 DeviveID,u8 RegAddr,u8 size,u8* pBuff)
+int Api_IIC_ReadBytes(u8 SlaveAddr,u8 RegAddr,u8 size,u8* pBuff)
 {
-    u8 count;
+    u8 count=0;
     int ret;
     Drv_IIC_Start();
-    Drv_IIC_Send_Byte(DeviveID);
+    Drv_IIC_Send_Byte(SlaveAddr);
     ret = Drv_IIC_Wait_Ack();
-    if(ret == 0) return -1;
     Drv_IIC_Send_Byte(RegAddr);
     ret = Drv_IIC_Wait_Ack();
-    if(0 == ret) return -1;
     Drv_IIC_Start();
-    Drv_IIC_Send_Byte(RegAddr+1);
+    Drv_IIC_Send_Byte(SlaveAddr+1);
     ret = Drv_IIC_Wait_Ack();
-    if(0 == ret) return -1;
     for(count=0;count<size-1;count++)
-       {
-            pBuff[count]=Drv_IIC_Read_Byte(1);
-       }
+    {
+      pBuff[count]=Drv_IIC_Read_Byte(1);
+    }
     pBuff[count]=Drv_IIC_Read_Byte(0);
      Drv_IIC_Stop();
      return 1;
@@ -221,6 +216,7 @@ int Api_IIC_Write_OneByte(u8 slave_addr,u8 addr,u8 data)
 	Drv_IIC_Send_Byte(data);
 	Drv_IIC_Wait_Ack();
 	Drv_IIC_Stop();
+	return 1;
 }
 int Api_IIC_Read_OneByte(u8 slave_addr,u8 addr,u8* data)
 {

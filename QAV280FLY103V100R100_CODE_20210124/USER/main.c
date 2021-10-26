@@ -78,7 +78,7 @@ int main()
 //	    sprintf(str_buff,"times:%d,hello! Welcome to my STM32\n",times);
 //	    USART2_SendData(str_buff,sizeof(str_buff));
 //        DebugLog("times:%d 0x%x,Welcome to STM32,QAV280 Project is waiting for you~\n",times,times);
-        Delay_ms(200);
+//        Delay_ms(200);
         times++;
 //      add test
 //		FlashErase(FlashDataBase,1);

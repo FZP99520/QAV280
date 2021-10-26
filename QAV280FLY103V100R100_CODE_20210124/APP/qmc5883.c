@@ -171,7 +171,7 @@ static int MAG_WriteByte(u8 addr,u8 data)
 {
     int res;
     u8* pBuff;
-    *pBuff = data;
+    pBuff = &data;
 	res = Api_IIC_WriteBytes(MAG_DeviceID, addr,1,pBuff);
     return res;
 }

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\output\template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\output\template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sun Sep 26 22:47:55 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Oct 26 21:32:49 2021
 <BR><P>
 <H3>Maximum Stack Usage =        432 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -103,7 +103,7 @@ Global Symbols
 
 <P><STRONG><a name="[192]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
-<P><STRONG><a name="[35]"></a>main</STRONG> (Thumb, 234 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[35]"></a>main</STRONG> (Thumb, 228 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = main &rArr; MS5611_Init &rArr; ms5611_prom &rArr; Api_IIC_ReadBytes &rArr; Drv_IIC_Read_Byte &rArr; Drv_IIC_NAck &rArr; Drv_SDA_OUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Init
@@ -971,7 +971,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e4]"></a>MAG_Data_Update</STRONG> (Thumb, 846 bytes, Stack size 112 bytes, qmc5883.o(.text))
+<P><STRONG><a name="[e4]"></a>MAG_Data_Update</STRONG> (Thumb, 848 bytes, Stack size 112 bytes, qmc5883.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = MAG_Data_Update &rArr; cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
@@ -1465,7 +1465,7 @@ Global Symbols
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MS5611_start_ut
 </UL>
 
-<P><STRONG><a name="[e0]"></a>Api_IIC_WriteBytes</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, iic.o(.text))
+<P><STRONG><a name="[e0]"></a>Api_IIC_WriteBytes</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, iic.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = Api_IIC_WriteBytes &rArr; Drv_IIC_Send_Byte &rArr; Drv_SDA_OUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drv_IIC_Send_Byte
@@ -1477,7 +1477,7 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MAG_WriteByte
 </UL>
 
-<P><STRONG><a name="[6a]"></a>Api_IIC_ReadBytes</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, iic.o(.text))
+<P><STRONG><a name="[6a]"></a>Api_IIC_ReadBytes</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, iic.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Api_IIC_ReadBytes &rArr; Drv_IIC_Read_Byte &rArr; Drv_IIC_NAck &rArr; Drv_SDA_OUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drv_IIC_Read_Byte
@@ -3622,8 +3622,8 @@ Local Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Send_Power
 </UL>
 
-<P><STRONG><a name="[df]"></a>MAG_WriteByte</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, qmc5883.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MAG_WriteByte &rArr; Api_IIC_WriteBytes &rArr; Drv_IIC_Send_Byte &rArr; Drv_SDA_OUT &rArr; GPIO_Init
+<P><STRONG><a name="[df]"></a>MAG_WriteByte</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, qmc5883.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MAG_WriteByte &rArr; Api_IIC_WriteBytes &rArr; Drv_IIC_Send_Byte &rArr; Drv_SDA_OUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Api_IIC_WriteBytes
 </UL>
@@ -3663,8 +3663,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MAG_Data_Update
 </UL>
 
-<P><STRONG><a name="[e9]"></a>MPU6050_Write_Data</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, mpu6050.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MPU6050_Write_Data &rArr; Api_IIC_WriteBytes &rArr; Drv_IIC_Send_Byte &rArr; Drv_SDA_OUT &rArr; GPIO_Init
+<P><STRONG><a name="[e9]"></a>MPU6050_Write_Data</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, mpu6050.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MPU6050_Write_Data &rArr; Api_IIC_WriteBytes &rArr; Drv_IIC_Send_Byte &rArr; Drv_SDA_OUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Api_IIC_WriteBytes
 </UL>
