@@ -5,6 +5,9 @@
 #define USART1_Buff_Len 128
 #define USART2_Buff_Len 1024
 
+#define USART_BaudRate_9600     9600u
+#define USART_BaudRate_115200   115200u
+
 typedef struct
 {
 	u8 DMA_TX_OK;

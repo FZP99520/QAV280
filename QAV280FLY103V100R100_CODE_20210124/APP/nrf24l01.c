@@ -31,7 +31,6 @@ void NRF24L01_Init(void)
  	GPIO_Init(GPIOA, &GPIO_InitStructure);	//初始化指定IO
  	NRF_CSN_HIGH;//上拉		禁止SPI通信		
 
-  SPI2_Init();    		//初始化SPI	 
 	NRF_CSN_HIGH;			//SPI片选取消  
 }
 

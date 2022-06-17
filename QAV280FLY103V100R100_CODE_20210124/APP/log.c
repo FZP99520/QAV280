@@ -20,6 +20,8 @@ void DebugLog(const char* format,...)
         USART1_SendData((u8*)Log_Buff,sizeof(Log_Buff));
     #elif defined (DebugLog_USE_USART2)
         USART2_SendData((u8*)Log_Buff,sizeof(Log_Buff));
+    #else
+        return;
     #endif
 }
 
