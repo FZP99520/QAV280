@@ -17,9 +17,9 @@ void DebugLog(const char* format,...)
     len = vsnprintf((char*)Log_Buff,sizeof(Log_Buff)+1,(char*)format,args);
     va_end(args);
     #ifdef DebugLog_USE_USART1
-        USART1_SendData((u8*)Log_Buff,sizeof(Log_Buff));
+        USART1_SendData((u8*)Log_Buff,len);
     #elif defined (DebugLog_USE_USART2)
-        USART2_SendData((u8*)Log_Buff,sizeof(Log_Buff));
+        USART2_SendData((u8*)Log_Buff,len);
     #else
         return;
     #endif

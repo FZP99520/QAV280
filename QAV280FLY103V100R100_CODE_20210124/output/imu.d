@@ -33,8 +33,8 @@
 .\output\imu.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\output\imu.o: APP\mpu6050.h
 .\output\imu.o: APP\filter.h
-.\output\imu.o: APP\control.h
+.\output\imu.o: APP\qmc5883.h
 .\output\imu.o: .\Drive\iic.h
 .\output\imu.o: .\APP\systick\systick.h
-.\output\imu.o: APP\qmc5883.h
+.\output\imu.o: APP\control.h
 .\output\imu.o: C:\Keil\ARM\ARMCC\Bin\..\include\math.h

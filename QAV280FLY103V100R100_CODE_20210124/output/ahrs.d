@@ -38,7 +38,7 @@
 .\output\ahrs.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\output\ahrs.o: APP\filter.h
 .\output\ahrs.o: APP\control.h
-.\output\ahrs.o: .\Drive\iic.h
-.\output\ahrs.o: .\APP\systick\systick.h
 .\output\ahrs.o: APP\IMU.h
 .\output\ahrs.o: APP\qmc5883.h
+.\output\ahrs.o: .\Drive\iic.h
+.\output\ahrs.o: .\APP\systick\systick.h

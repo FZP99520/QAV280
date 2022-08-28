@@ -549,6 +549,11 @@
               <FileType>1</FileType>
               <FilePath>.\Drive\iic.c</FilePath>
             </File>
+            <File>
+              <FileName>device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\device.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

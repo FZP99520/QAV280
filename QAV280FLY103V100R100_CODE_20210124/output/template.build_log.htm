@@ -22,30 +22,281 @@ Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
 C:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\template.uvprojx
-Project File Date:  09/12/2021
+Project File Date:  06/30/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil\ARM\ARMCC\Bin'
 Build target 'Target1'
-compiling usart.c...
-Drive\usart.c(117): warning:  #223-D: function "Delay_us" declared implicitly
-          Delay_us(100);
-Drive\usart.c(194): warning:  #1-D: last line of file ends without a newline
+compiling flash.c...
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\flash.c(25): warning:  #177-D: variable "data"  was declared but never referenced
+    uint16_t i, data = 0;
+APP\flash.c(77): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+  		imu_data->AccelOffsetFinished =1;
+APP\flash.c(78): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+  		imu_data->AccelOffsetReq=0;
+APP\flash.c(83): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+  		imu_data->AccelOffsetFinished =0;
+APP\flash.c(84): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+  		imu_data->AccelOffsetReq=1;
+APP\flash.c(92): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+  		imu_data->GyroOffsetFinished =1;
+APP\flash.c(93): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+  		imu_data->GyroOffsetReq=0;
+APP\flash.c(97): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+  		imu_data->GyroOffsetFinished =0;
+APP\flash.c(98): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+  		imu_data->GyroOffsetReq=1;
+APP\flash.c(171): warning:  #1-D: last line of file ends without a newline
   }
-Drive\usart.c: 2 warnings, 0 errors
-linking...
-Program Size: Code=51712 RO-data=896 RW-data=908 ZI-data=4908  
-FromELF: creating hex file...
-".\output\template.axf" - 0 Error(s), 2 Warning(s).
+APP\flash.c: 6 warnings, 8 errors
+compiling timer.c...
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+Drive\timer.c(61): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+          {if(IMU_Data.AccelOffsetFinished==1 && MS5611.OffsetFinished==1)Height_Control_Update();}
+Drive\timer.c: 4 warnings, 1 error
+compiling control.c...
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\control.c(34): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+       if(IMU_Data.AccelOffsetFinished == 1&&IMU_Data.GyroOffsetFinished ==1 \
+APP\control.c(34): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+       if(IMU_Data.AccelOffsetFinished == 1&&IMU_Data.GyroOffsetFinished ==1 \
+APP\control.c(14): warning:  #177-D: variable "HighLockState"  was declared but never referenced
+  static u8 HighLockState=1;
+APP\control.c: 5 warnings, 2 errors
+compiling mpu6050.c...
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\includeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\mpu6050.c(73): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+      if(IMU_Data.AccelOffsetReq == 1)//需要校准时不做四元数解算
+APP\mpu6050.c(84): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+      if(IMU_Data.GyroOffsetReq == 1)//需要校准时不做四元数解算
+APP\mpu6050.c(136): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+      if(imu->AccelOffsetReq ==1 )
+APP\mpu6050.c(138): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+          imu->AccelOffsetFinished = 0;
+APP\mpu6050.c(141): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+              imu->AccelOffsetFinished = 1;
+APP\mpu6050.c(142): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+              imu->AccelOffsetReq = 0;
+APP\mpu6050.c(179): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+      if(imu->GyroOffsetReq == 1)
+APP\mpu6050.c(181): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+          imu->GyroOffsetFinished = 0;
+APP\mpu6050.c(184): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+              imu->GyroOffsetFinished = 1;
+APP\mpu6050.c(185): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+              imu->GyroOffsetReq = 0;
+APP\mpu6050.c: 4 warnings, 10 errors
+compiling ANO_DT.c...
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\ANO_DT.c(179): warning:  #550-D: variable "RxBuffer"  was set but never used
+  	static u8 RxBuffer[50];
+APP\ANO_DT.c(238): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+  		  IMU_Data.AccelOffsetReq = 1;
+APP\ANO_DT.c(239): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+  		  IMU_Data.AccelOffsetFinished=0;
+APP\ANO_DT.c(243): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+  		  IMU_Data.GyroOffsetReq = 1;
+APP\ANO_DT.c(244): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+  		  IMU_Data.GyroOffsetFinished = 0;
+APP\ANO_DT.c: 5 warnings, 4 errors
+compiling RC.c...
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\RC.c(40): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+  			    if(IMU_Data.AccelOffsetFinished) 
+APP\RC.c(50): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+  			    if(IMU_Data.GyroOffsetFinished) 
+APP\RC.c(22): warning:  #177-D: variable "i"  was declared but never referenced
+  	static u8 i=0;
+APP\RC.c(193): warning:  #177-D: variable "temp_f32"  was declared but never referenced
+  	float temp_f32;
+APP\RC.c(280): warning:  #177-D: variable "temp_u32"  was declared but never referenced
+  	u32 temp_u32;
+APP\RC.c(445): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+  		    IMU_Data.AccelOffsetReq = 1;
+APP\RC.c(446): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+  		    IMU_Data.AccelOffsetFinished=0;
+APP\RC.c(450): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+  		    IMU_Data.GyroOffsetReq = 1;
+APP\RC.c(451): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+  		    IMU_Data.GyroOffsetFinished = 0;
+APP\RC.c: 7 warnings, 6 errors
+compiling log.c...
+compiling nrf24l01.c...
+compiling IMU.c...
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IMU.c(152): warning:  #1-D: last line of file ends without a newline
+  }
+APP\IMU.c: 2 warnings, 0 errors
+compiling ms5611.c...
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\ms5611.c: 4 warnings, 0 errors
+compiling pwm.c...
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+Drive\pwm.c: 4 warnings, 0 errors
+compiling Position_Control_GPS.c...
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.c(114): warning:  #1-D: last line of file ends without a newline
+  }
+APP\Position_Control_GPS.c: 5 warnings, 0 errors
+compiling ahrs.c...
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\ahrs.c(101): warning:  #550-D: variable "my_gz"  was set but never used
+  	  float my_gz;
+APP\ahrs.c(217): warning:  #550-D: variable "halfemx"  was set but never used
+  	  float halfemx=0,halfemy=0,halfemz=0;
+APP\ahrs.c(217): warning:  #550-D: variable "halfemy"  was set but never used
+  	  float halfemx=0,halfemy=0,halfemz=0;
+APP\ahrs.c(217): warning:  #550-D: variable "halfemz"  was set but never used
+  	  float halfemx=0,halfemy=0,halfemz=0;
+APP\ahrs.c(365): warning:  #1-D: last line of file ends without a newline
+  }
+APP\ahrs.c(354): warning:  #177-D: function "To_180_degrees"  was declared but never referenced
+  float To_180_degrees(float x)
+APP\ahrs.c: 7 warnings, 0 errors
+compiling main.c...
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+USER\main.c(9): warning:  #177-D: variable "str_buff"  was declared but never referenced
+      char str_buff[64];
+USER\main.c(10): warning:  #177-D: variable "flag_esc_cal"  was declared but never referenced
+  	u8 flag_esc_cal=0;
+USER\main.c(11): warning:  #177-D: variable "del_cnt"  was declared but never referenced
+  	u16 del_cnt=0;
+USER\main.c(12): warning:  #177-D: variable "r"  was declared but never referenced
+  	u8 r;
+USER\main.c(13): warning:  #177-D: variable "dir"  was declared but never referenced
+  	u8 dir=0;
+USER\main.c: 9 warnings, 0 errors
+compiling height.c...
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\includeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\height.c: 4 warnings, 0 errors
+compiling qmc5883.c...
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\includeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\qmc5883.c: 4 warnings, 0 errors
+compiling device.c...
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+Drive\device.c(73): error:  #136: struct "<unnamed>"  has no field "AccelOffsetFinished"
+      if(IMU_Data.AccelOffsetFinished==0)     IMU_Data.AccelOffsetReq=1;
+Drive\device.c(73): error:  #136: struct "<unnamed>"  has no field "AccelOffsetReq"
+      if(IMU_Data.AccelOffsetFinished==0)     IMU_Data.AccelOffsetReq=1;
+Drive\device.c(74): error:  #136: struct "<unnamed>"  has no field "GyroOffsetFinished"
+      if(IMU_Data.GyroOffsetFinished==0)      IMU_Data.GyroOffsetReq=1;
+Drive\device.c(74): error:  #136: struct "<unnamed>"  has no field "GyroOffsetReq"
+      if(IMU_Data.GyroOffsetFinished==0)      IMU_Data.GyroOffsetReq=1;
+Drive\device.c: 4 warnings, 4 errors
+compiling pid.c...
+APP\IMU.h(43): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\includeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\Position_Control_GPS.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\IncludeAll.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif
+APP\pid.c: 4 warnings, 0 errors
+".\output\template.axf" - 35 Error(s), 78 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.0.0.pack
-                ARM::CMSIS:DSP:1.4.6
+                ARM::CMSIS:CORE:5.0.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: DSP Version: 1.4.6
    * Component: CORE Version: 5.0.0
+   * Component: DSP Version: 1.4.6
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\FENG\Documents\GitHub\QAV280\QAV280FLY103V100R100_CODE_20210124\RTE\_Target1
@@ -54,12 +305,13 @@ Package Vendor: ARM
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:DSP:1.4.6
-      Library file:  CMSIS\Lib\ARM\arm_cortexM3l_math.lib
-      Include file:  CMSIS\Include\arm_math.h
-
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:01
+
+   * Component: ARM::CMSIS:DSP:1.4.6
+      Include file:  CMSIS\Include\arm_math.h
+      Library file:  CMSIS\Lib\ARM\arm_cortexM3l_math.lib
+Target not created.
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

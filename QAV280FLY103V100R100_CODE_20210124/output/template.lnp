@@ -31,6 +31,7 @@
 ".\output\kalman.o"
 ".\output\driver.o"
 ".\output\iic.o"
+".\output\device.o"
 ".\output\startup_stm32f10x_md.o"
 ".\output\stm32f10x_gpio.o"
 ".\output\stm32f10x_rcc.o"

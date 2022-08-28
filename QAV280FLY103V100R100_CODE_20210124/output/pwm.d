@@ -40,9 +40,9 @@
 .\output\pwm.o: C:\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\pwm.o: .\APP\mpu6050.h
 .\output\pwm.o: .\APP\filter.h
-.\output\pwm.o: .\APP\control.h
-.\output\pwm.o: .\Drive\iic.h
 .\output\pwm.o: .\APP\qmc5883.h
+.\output\pwm.o: .\Drive\iic.h
+.\output\pwm.o: .\APP\control.h
 .\output\pwm.o: .\APP\nrf24l01.h
 .\output\pwm.o: .\APP\RC.h
 .\output\pwm.o: .\APP\gps.h

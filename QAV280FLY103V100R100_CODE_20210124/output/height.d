@@ -40,9 +40,9 @@
 .\output\height.o: C:\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\height.o: APP\mpu6050.h
 .\output\height.o: APP\filter.h
-.\output\height.o: APP\control.h
-.\output\height.o: .\Drive\iic.h
 .\output\height.o: APP\qmc5883.h
+.\output\height.o: .\Drive\iic.h
+.\output\height.o: APP\control.h
 .\output\height.o: APP\nrf24l01.h
 .\output\height.o: APP\RC.h
 .\output\height.o: APP\gps.h

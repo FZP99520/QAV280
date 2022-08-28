@@ -41,9 +41,9 @@
 .\output\position_control_gps.o: C:\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\position_control_gps.o: APP\mpu6050.h
 .\output\position_control_gps.o: APP\filter.h
-.\output\position_control_gps.o: APP\control.h
-.\output\position_control_gps.o: .\Drive\iic.h
 .\output\position_control_gps.o: APP\qmc5883.h
+.\output\position_control_gps.o: .\Drive\iic.h
+.\output\position_control_gps.o: APP\control.h
 .\output\position_control_gps.o: APP\nrf24l01.h
 .\output\position_control_gps.o: APP\RC.h
 .\output\position_control_gps.o: APP\gps.h
